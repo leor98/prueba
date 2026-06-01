@@ -1,0 +1,170 @@
+/* Reset básico para que nada te empuje el diseño */
+:host {
+  display: block;
+}
+
+.main-container {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* IMPORTANTE: para que el personaje de 800px no rompa el ancho */
+}
+
+/* --- HEADER --- */
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  background-color: white;
+  position: relative;
+  z-index: 100;
+}
+
+.main-logo { width: 140px; height: auto; }
+.nav-links { display: flex; gap: 30px; }
+.nav-links a { 
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none; 
+    color: #444; 
+    font-weight: bold; 
+    font-size: 14px; 
+}
+
+/* --- HERO SECTION (FULL WIDTH) --- */
+.hero-section {
+  position: relative; /* Padre relativo para las capas absolutas */
+  width: 100%;
+  height: 600px; /* Altura de la banda del helado */
+}
+
+/* La imagen de fondo que "explota" hacia los bordes */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.bg-icecream {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Clave: llena el fondo sin deformarse */
+  object-position: center;
+}
+
+/* El contenedor del texto (centrado) */
+.hero-content {
+  position: relative;
+  z-index: 10; /* Arriba del helado */
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.text-block {
+  max-width: 550px;
+}
+
+.brand-title {
+  font-family: 'Pacifico', cursive; /* La fuente manuscrita */
+  font-size: 90px; /* Bien grande */
+  color: #dbd6d5;
+  margin: 0;
+  line-height: 1.2;
+  transform: rotate(-3deg); /* Un toque de inclinación como en el ejemplo */
+  /*  text-shadow: 2px 2px 0px rgba(7, 7, 7, 0.8); */
+
+  text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000, 
+     3px  3px 10px rgba(0,0,0,0.8);
+
+}
+
+.slogan-bold { 
+    font-family: 'Montserrat', sans-serif;
+  font-weight: 700; /* Negrita */
+  font-size: 22px;
+  letter-spacing: 2px; /* Espaciado entre letras */
+  color: #dad5d5;
+  text-transform: uppercase; /* Todo en mayúsculas */
+  margin-top: 10px; 
+
+  text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000, 
+     3px  3px 10px rgba(0,0,0,0.8);
+
+}
+
+.slogan-thin { 
+    font-family: 'Montserrat', sans-serif;
+  font-weight: 700; /* Finita */
+  font-size: 18px;
+  color: #bdbaba;
+  letter-spacing: 1px;
+
+  text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000, 
+     3px  3px 10px rgba(0,0,0,0.8);
+
+}
+
+/* Botones */
+.btn-primary { background: #c69c6d; color: white; border: none; padding: 15px 30px; border-radius: 30px; cursor: pointer; font-weight: bold; margin-right: 15px; }
+.btn-secondary { background: white; border: 2px solid #c69c6d; color: #c69c6d; padding: 15px 30px; border-radius: 30px; cursor: pointer; font-weight: bold; }
+
+/* EL PERSONAJE GIGANTE (Fijate bien en estos valores) */
+.hero-character {
+  position: absolute;
+  right: -400px; /* Sacado a la derecha */
+  bottom: 50px; /* Sacado hacia abajo para que "nazca" del suelo */
+  width: 1200px; /* Tamaño real de impacto */
+  height: auto;
+  z-index: 50; /* Arriba de todo */
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+  pointer-events: none; /* Para que no bloquee los botones si los pisa */
+}
+
+
+/*boton registrar logear */
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.btn-auth {
+  background-color: #c69c6d; /* El color dorado/café de los botones de tu ejemplo */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px; /* Bordes redondeados para que sea moderno */
+  font-family: 'Montserrat', sans-serif; /* La fuente que instalamos */
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-auth:hover {
+  background-color: #5d4037; /* Cambia a un marrón más oscuro al pasar el mouse */
+  transform: scale(1.05); /* Un pequeño efecto de aumento */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}

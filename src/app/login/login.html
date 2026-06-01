@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="auth-wrapper" [class.active]="mode !== 'initial'">
+    
+    <div class="form-container login-form" *ngIf="mode === 'login'">
+      <h2>Bienvenido de nuevo</h2>
+      
+      <form (submit)="iniciarSesion($event)">
+        <input 
+          type="text" 
+          name="username" 
+          placeholder="Nombre de usuario" 
+          [(ngModel)]="usernameField" 
+          required>
+          
+        <input 
+          type="password" 
+          name="password" 
+          placeholder="Contraseña" 
+          [(ngModel)]="passwordField" 
+          required>
+          
+        <button type="submit" class="btn-main">ENTRAR</button>
+      </form>
+      
+      <p (click)="mode = 'register'">¿No tienes cuenta? <span>Regístrate</span></p>
+    </div>
+
+    <div class="form-container register-form" *ngIf="mode === 'register'">
+      <h2>Crea tu cuenta</h2>
+      <input type="text" placeholder="Nombre completo">
+      <input type="email" placeholder="Correo electrónico">
+      <input type="password" placeholder="Contraseña">
+      <button class="btn-main">REGISTRARME</button>
+      <p (click)="mode = 'login'">¿Ya tienes cuenta? <span>Inicia sesión</span></p>
+    </div>
+
+    <div class="overlay-container" [class]="mode">
+      <div class="overlay">
+        <div class="overlay-panel">
+          <img src="/people.png" alt="Pareja comiendo helado" class="login-img">
+          
+          <div class="initial-content" *ngIf="mode === 'initial'">
+            <h1>¡Disfrutemos juntos!</h1>
+            <div class="initial-buttons">
+              <button (click)="mode = 'login'" class="btn-outline">LOGIN</button>
+              <button (click)="mode = 'register'" class="btn-outline">REGISTRO</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
